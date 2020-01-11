@@ -60,5 +60,4 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 double CalculateTotalEnergy(     std::vector<CHR_PRP> &Charge);
 
 
-
 #endif
