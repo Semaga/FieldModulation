@@ -56,8 +56,6 @@ int main(int argc, char const *argv[]){
 	// CalculateEFP(EFP, Charges, delta_x, delta_y);
 	WriteChargesDataToFile(OutputFile_be, Charges, substrate);
 	
-	//Calcaulate forces action to particles
-	CalculateForce(Charges);
 
 	//Calculate Total energy of system
 	double TotalEnergy = CalculateTotalEnergy(Charges);

@@ -228,6 +228,22 @@ void CalculateForce(             std::vector <CHR_PRP> &Charges){
 	}
 }
 
+void CalculateVelosity(          std::vector <CHR_PRP> &Charge){
+	double Vx,  Vy,  Vz,
+	       dVx, dVy, dVz;
+
+	for (auto &i:Charge){
+		Vx = i.get_velosity_x();
+		Vy = i.get_velosity_y();
+		Vz = i.get_velosity_z();
+	
+		dVx = i.get_action_force_x() * 0.000'005 / i.get_mass();
+		dVy = i.get_action_force_y() * 0.000'005 / i.get_mass();
+		dVz = i.get_action_force_z() * 0.000'005 / i.get_mass();
+	}
+}
+
+
 void CalculateEFS(               std::vector <std::vector <double> > &EFS, 
 	                               std::vector <CHR_PRP> &Charges, 
 	                               const double &delta_x, 
@@ -274,13 +290,31 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 	WriteMessage("\n\t\t\t@@@Start optimize@@@","ToLocalMinimum");
 	double dY = 0.00001, 
 	       dX = 0.00001, 
-	       dZ = 0.00'000'005, 
-	       x, y, z;
+	       dZ = 0.00'000'005,
+	       dt = 0.000'000'005, // Time between calc 5 mks
+ 	       dVx, dVy, dVz, 
+	       x,  y,  z,
+	       Vx, Vy, Vz;
+	CalculateForce(Charges);
+	CalculateVelosity(Charges);
 	for(int n = 0; n != NumberIfItteration; n++){
 		for (auto &i:Charges){
 			x  =  i.get_position_x();
 			y  =  i.get_position_y();	
 			z  =  i.get_position_z();  
+
+			Vx = i.get_velosity_x();
+			Vy = i.get_velosity_y();
+			Vz = i.get_velosity_z();
+
+			dVx = i.get_action_force_x() / i.get_mass() * dt;
+			dVy = i.get_action_force_y() / i.get_mass() * dt;
+			dVz = i.get_action_force_z() / i.get_mass() * dt;
+
+			// dX = i.get_action_force_x()* dt * dt /( 2 * i.get_mass());
+			// dY = i.get_action_force_y()* dt * dt /( 2 * i.get_mass());
+			// dZ = i.get_action_force_z()* dt * dt /( 2 * i.get_mass());
+			
 			if ( ( i.get_action_force_x() > 0 ) && ( ( x + dX ) < i.get_substrate_lenght_x() ) ){
 				i.set_position_x(x + dX);
 			}else if( ( i.get_action_force_x() < 0 ) && ((x - dX) > 0) ) {
@@ -296,7 +330,10 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 			}else if ( ( i.get_action_force_z() < 0 ) && ((z - dZ) > 0.00'000'005 ) ){
 				i.set_position_z( z - dZ);
 			}	
+
+			
 		}
 		CalculateForce(Charges);
+		CalculateVelosity(Charges);
 	}
 }

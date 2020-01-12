@@ -1,30 +1,35 @@
 #include "CHR_PRP.h"
 
-void CHR_PRP::set_position_x(     const double &x      ){
-	// if (x < 0){
-	// 	position_x = 0.01 * lenght_x;
-	// }
-	// else if (x > lenght_x){
-	// 	position_x = 0.99 * lenght_x;
-	// }
-	position_x = x;
-}
-void CHR_PRP::set_position_y(     const double& y      ){
-	// if (y < 0)
-	// 	position_y = 0.01 * lenght_y;
-	// else if (y > lenght_y)
-	// 	position_y = 0.99 * lenght_y;
-	// else
-	position_y = y;
-}
-
-void CHR_PRP::set_position_z(     const double &z       ){
-	position_z = z;
-}
-
 void CHR_PRP::set_charge(         const double &charge  ){
 	charge_value = charge;
 }
+
+void CHR_PRP::set_position_x(     const double &x      ){
+	if( ( x < lenght_x ) && (x > 0) ){
+		position_x = x;
+	}
+}
+void CHR_PRP::set_position_y(     const double& y      ){
+	if( ( y < lenght_y ) && (y > 0)){
+		position_y = y;
+	}
+}
+void CHR_PRP::set_position_z(     const double &z       ){
+	if ( ( z < 0.00'000'065) && (z > 0.00'000'005)){
+		position_z = z;
+	}
+}
+
+void CHR_PRP::set_velosity_x(     const double &Vx      ){
+	velosity_x = Vx;
+}
+void CHR_PRP::set_velosity_y(     const double &Vy      ){
+	velosity_y = Vy;
+}
+void CHR_PRP::set_velosity_z(     const double &Vz      ){
+	velosity_z = Vz;
+}
+
 
 void CHR_PRP::set_action_force_x( const double &force_x ){
 	double f = 0.0;
