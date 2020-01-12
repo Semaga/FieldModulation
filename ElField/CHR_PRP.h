@@ -21,11 +21,14 @@ private:
 
 	double energy;
 
+	double EFS;
+
 
 public:
 	CHR_PRP(SUB_PRP & substrate){
 		lenght_x = substrate.get_lenght_x();
 		lenght_y = substrate.get_lenght_y();
+		EFS      = substrate.get_voltage();
 	}
 	void set_position_x(      const double &x        );
 	void set_position_y(      const double &y        );

@@ -161,14 +161,15 @@ void WriteMessage(const std::string &s, const std::string &PositionFile){
 
 double CalculateTotalEnergy(std::vector<CHR_PRP> &Charge){
 	double TotalEnergy = 0.0;
-	double MultCharge, Rx2, Ry2;
+	double MultCharge, Rx2, Ry2, Rz2;
 	for(int i = 0; i != Charge.size(); i++){
 		for(int j = 0; j != Charge.size(); j++){
 			if (j !=i ){
 				MultCharge   = Charge[i].get_charge() * Charge[j].get_charge();
 				Rx2          = pow(Charge[j].get_position_x() - Charge[i].get_position_x(),2);
 				Ry2          = pow(Charge[j].get_position_y() - Charge[i].get_position_y(),2);
-				TotalEnergy += MultCharge / sqrt(Rx2 + Ry2);
+				Rz2          = pow(Charge[j].get_position_z() - Charge[i].get_position_z(),2);
+				TotalEnergy += MultCharge / sqrt(Rx2 + Ry2 + Rz2);
 			}
 		}
 	}
@@ -201,6 +202,7 @@ void CalculateForce( std::vector <CHR_PRP> &Charges){
 		}
 		Charges[i].set_action_force_x(force_x);
 		Charges[i].set_action_force_y(force_y);
+		Charges[i].set_action_force_z(force_z);
 		WriteMessage("Force was Calculate for "+std::to_string(i)+ " particle","CalculateForce");
 	}
 }
@@ -249,7 +251,7 @@ void ToLocalMinimum(std::vector <CHR_PRP> &Charges,
 	//Shift all particles after that calculate enegy
 	WriteMessage("\t\t@@@@@@","ToLocalMinimum");
 	WriteMessage("\n\t\t\t@@@Start optimize@@@","ToLocalMinimum");
-	double dY = 0.00001, dX = 0.00001, dZ = 0.00'000'010, x, y, z;
+	double dY = 0.00001, dX = 0.00001, dZ = 0.00'000'005, x, y, z;
 	for(int n = 0; n != NumberIfItteration; n++){
 		WriteMessage("@@@Start " + std::to_string(n) +" itteration", "ToLocalMinimum");
 		WriteMessage("@@@Start to shift particales","ToLocalMinimum");
