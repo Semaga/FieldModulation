@@ -3,9 +3,9 @@ Substrate:
 	Lenght_y = 0.01
 Parameters of calculation:
 	Dimenstion = 500
-	Itteration = 20000
+	Itteration = 1000
 Other parameters:
-	Number of electrons = 100
+	Number of electrons = 14
 Name of output files:
 	Output EFS-files: POS_before.txt
 	Output EFP-files: outputfile2.txt

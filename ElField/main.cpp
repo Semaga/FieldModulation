@@ -38,10 +38,11 @@ int main(int argc, char const *argv[]){
 	WriteMessage("Start to write particles's position", "main");
 	srand (time(NULL));
 	for (int i = 0; i != Charges.size(); i++){
-		Charges[i].set_charge(1);                                                           //set unit charge
+		Charges[i].set_charge(-1);                                                           //set unit charge
 
-		Charges[i].set_position_x( lenght_x / RAND_MAX * rand());                                                    //set position in centimeters
-		Charges[i].set_position_y( lenght_y / RAND_MAX * rand());                            //set position in centimeters 		
+		Charges[i].set_position_x( lenght_x / RAND_MAX * rand() );                                                    //set position in centimeters
+		Charges[i].set_position_y( lenght_y / RAND_MAX * rand() );  
+		Charges[i].set_position_z( 0.00'000'005 + 0.00'000'060 / RAND_MAX * rand() );                          //set position in centimeters 		
 	}	
 	WriteMessage("Particles's position was write", "main");
 

@@ -79,12 +79,14 @@ void ReadInputFile(    const std::string &InputeFile,
 	                     std::string &OutputFile_EFS, 
 	                     std::string &OutputFile_EFP)
 {
-	WriteMessage("Try to open inpute file","ReadInputFile");	
+	WriteMessage("Try to open inpute file",
+		           "ReadInputFile");	
 	std::cout << "" << std::endl;
 	std::ifstream fin(InputeFile);
 	std::vector <std::string> s;
 	if(fin){
-		WriteMessage("Input file is open","ReadInputFile");
+		WriteMessage("Input file is open",
+			           "ReadInputFile");
 		std::string line;
 		double param;
 		int chec;
@@ -98,38 +100,45 @@ void ReadInputFile(    const std::string &InputeFile,
 		s = split(line);
 		param = stod(s[2]);	
 		Substrate.set_lenght_y(param);
-		WriteMessage("\t\tLenght and wildth of substrate was read ...","ReadInputFile");
+		WriteMessage("\t\tLenght and wildth of substrate was read ...",
+			               "ReadInputFile");
 
 		getline(fin, line);
 		getline(fin, line);
 		s = split(line);
 		chec = stoi(s[2]);	
 		Substrate.set_dimnension(chec);
-		WriteMessage("\t\tDimenstion of calculation was read ...","ReadInputFile");
+		WriteMessage("\t\tDimenstion of calculation was read ...",
+			               "ReadInputFile");
 		getline(fin, line);
 		s = split(line);
 		NumberIfItteration = stoi(s[2]);
-		WriteMessage("\t\tNumber of itteration was read ...","ReadInputFile");
+		WriteMessage("\t\tNumber of itteration was read ...",
+			               "ReadInputFile");
 
 
 		getline(fin, line);
 		getline(fin, line);
 		s = split(line);
 		chec = stoi(s[4]);	
-		WriteMessage("\t\tNumber of particles is equal ", "ReadInputFile");
+		WriteMessage("\t\tNumber of particles is equal ", 
+			                "ReadInputFile");
 		NumberOfParticle = chec;
-		WriteMessage("\t\tNumber of particles was read ...", "ReadInputFile");
+		WriteMessage("\t\tNumber of particles was read ...", 
+			               "ReadInputFile");
 
 		getline(fin, line);
 		getline(fin, line);
 		s = split(line);
 		OutputFile_EFS = s[2];
-		WriteMessage("\t\tRead name of output file with EFS-data: "+OutputFile_EFS, "ReadInputFile");
+		WriteMessage("\t\tRead name of output file with EFS-data: "+OutputFile_EFS, 
+			               "ReadInputFile");
 
 		getline(fin, line);
 		s = split(line);
 		OutputFile_EFP = s[2];
-		WriteMessage("\t\tRead name of output file with EFP-data: "+OutputFile_EFP, "ReadInputFile");
+		WriteMessage("\t\tRead name of output file with EFP-data: "+OutputFile_EFP, 
+			               "ReadInputFile");
 		
 
 	}
@@ -171,15 +180,23 @@ double CalculateTotalEnergy(std::vector<CHR_PRP> &Charge){
 void CalculateForce( std::vector <CHR_PRP> &Charges){
 	for(int i = 0; i != Charges.size(); i++){
 		//Zeroing components of strenghts action to particle
-		double force_x = 0.0, force_y = 0.0, R2 = 0.0, delta_y = 0.0, delta_x = 0.0;
+		double force_x = 0.0, 
+		       force_y = 0.0, 
+		       force_z = 0.0,
+ 		       R2 = 0.0, 
+ 		       delta_z = 0.0,
+		       delta_y = 0.0, 
+		       delta_x = 0.0;
 		for(int j = 0; j != Charges.size(); j++){
 			if (j != i){
 				// WriteMessage("Ups, ","CalculateForce");
 				delta_x = Charges[i].get_position_x() - Charges[j].get_position_x();
 				delta_y = Charges[i].get_position_y() - Charges[j].get_position_y();
-				R2 = pow(delta_y,2) + pow(delta_x,2);
-				force_x += Charges[i].get_charge() * Charges[j].get_charge() * delta_x/ pow(R2,1.5);
-				force_y += Charges[i].get_charge() * Charges[j].get_charge() * delta_y/ pow(R2,1.5);
+				delta_z = Charges[i].get_position_z() - Charges[j].get_position_z();
+				R2 = pow(delta_y, 2) + pow(delta_x, 2) + pow(delta_z, 2) ;
+				force_x += Charges[i].get_charge() * Charges[j].get_charge() * delta_x/ pow(R2, 1.5);
+				force_y += Charges[i].get_charge() * Charges[j].get_charge() * delta_y/ pow(R2, 1.5);
+				force_z += Charges[i].get_charge() * Charges[j].get_charge() * delta_z/ pow(R2, 1.5);
 			}
 		}
 		Charges[i].set_action_force_x(force_x);
@@ -188,7 +205,11 @@ void CalculateForce( std::vector <CHR_PRP> &Charges){
 	}
 }
 
-void CalculateEFS( std::vector <std::vector <double> > &EFS, std::vector <CHR_PRP> &Charges, const double &delta_x, const double &delta_y){
+void CalculateEFS( std::vector <std::vector <double> > &EFS, 
+	                 std::vector <CHR_PRP> &Charges, 
+	                 const double &delta_x, 
+	                 const double &delta_y)
+{
 	double x = delta_x, y = delta_y;
 	for(int k = 0; k != Charges.size(); k++){
 		double position_x = 0.0, position_y = 0.0, R=0; 
@@ -206,7 +227,8 @@ void CalculateEFS( std::vector <std::vector <double> > &EFS, std::vector <CHR_PR
 void CalculateEFP( std::vector <std::vector <double> > &EFP, 
 	                 std::vector <CHR_PRP> &Charges, 
 	                 const double &delta_x, 
-	                 const double &delta_y){
+	                 const double &delta_y)
+{
 	double x = delta_x, y = delta_y;
 	for(int k = 0; k != Charges.size(); k++){
 		double position_x = 0.0, position_y = 0.0, R=0; 
@@ -221,17 +243,20 @@ void CalculateEFP( std::vector <std::vector <double> > &EFP,
 	}	
 }
 
-void ToLocalMinimum(std::vector <CHR_PRP> &Charges, const int &NumberIfItteration){
+void ToLocalMinimum(std::vector <CHR_PRP> &Charges, 
+	                  const int &NumberIfItteration)
+{
 	//Shift all particles after that calculate enegy
 	WriteMessage("\t\t@@@@@@","ToLocalMinimum");
 	WriteMessage("\n\t\t\t@@@Start optimize@@@","ToLocalMinimum");
-	double dY = 0.00001, dX = 0.00001, x, y;
+	double dY = 0.00001, dX = 0.00001, dZ = 0.00'000'010, x, y, z;
 	for(int n = 0; n != NumberIfItteration; n++){
 		WriteMessage("@@@Start " + std::to_string(n) +" itteration", "ToLocalMinimum");
 		WriteMessage("@@@Start to shift particales","ToLocalMinimum");
 		for (auto &i:Charges){
 			x  =  i.get_position_x();
 			y  =  i.get_position_y();	
+			z  =  i.get_position_z();  
 			if ( ( i.get_action_force_x() > 0 ) && ( ( x + dX ) < i.get_substrate_lenght_x() ) ){
 				i.set_position_x(x + dX);
 			}else if( ( i.get_action_force_x() < 0 ) && ((x - dX) > 0) ) {
@@ -241,6 +266,11 @@ void ToLocalMinimum(std::vector <CHR_PRP> &Charges, const int &NumberIfItteratio
 				i.set_position_y( y + dY);
 			}else if( ( i.get_action_force_y() < 0 ) && ((y - dY) > 0 ) ){
 				i.set_position_y( y - dY);
+			}
+			if ( ( i.get_action_force_z() > 0 ) && ((z + dZ) < 0.00'000'065 ) ){
+				i.set_position_z( z + dZ );
+			}else if ( ( i.get_action_force_z() < 0 ) && ((z - dZ) > 0.00'000'005 ) ){
+				i.set_position_z( z - dZ);
 			}
 		}
 		WriteMessage("@@@Finish to shift particales","ToLocalMinimum");
