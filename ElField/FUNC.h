@@ -7,6 +7,7 @@
 #include <string>
 #include <sstream>
 #include <cmath>
+#include <algorithm>
 
 #include "CHR_PRP.h"
 #include "SUB_PRP.h"
@@ -27,6 +28,7 @@ void WriteChargesDataToFile (    const std::string &OutputFile,
 void ReadInputFile(              const std::string &InputeFile, 
 	                               SUB_PRP &Substrate, 
 	                               int &NumberOfParticle, 
+	                               double &Temperature,
 	                               int &NumberIfItteration, 
 	                               std::string &OutputFile_EFS, 
 	                               std::string &OutputFile_EFP);

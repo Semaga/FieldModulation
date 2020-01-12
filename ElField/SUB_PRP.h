@@ -20,7 +20,7 @@ public:
 	double get_lenght_x(){  return lenght_x;  }
 	double get_lenght_y(){  return lenght_y;  }
 	int    get_dimension(){ return dimension; }
-	double get_voltage(){ return voltage; }
+	double get_voltage(){   return voltage;   }
 
 	void WriteDataToFile(std::ofstream &fout);
 

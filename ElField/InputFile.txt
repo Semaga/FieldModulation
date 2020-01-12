@@ -3,9 +3,11 @@ Substrate:
 	Lenght_y = 0.01
 Parameters of calculation:
 	Dimenstion = 500
-	Itteration = 1000
+	ElectricFieldStrenght = 10000
+	Temperature = 300
+	Itteration = 200
 Other parameters:
-	Number of electrons = 14
+	Number of electrons = 100
 Name of output files:
 	Output EFS-files: POS_before.txt
 	Output EFP-files: outputfile2.txt

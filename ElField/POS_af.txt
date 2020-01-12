@@ -2,74 +2,504 @@ Substrate parameters:
 	Lenght_X = 0.005
 	Lenght_Y = 0.01
 	Dimension = 500
-NumberOfParticle: 14
+NumberOfParticle: 100
 Particle parameters:
-	Position_X = 0.00313488
-	Position_Y = 0.00768457
-	Position_Z = 8.70355e-08
+	Position_X = 0.00406214
+	Position_Y = 6.141e-06
+	Position_Z = 5.27023e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00210708
-	Position_Y = 0.00854927
-	Position_Z = 8.55335e-08
+	Position_X = 0.00168647
+	Position_Y = 0.00232684
+	Position_Z = 8.91794e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00315644
-	Position_Y = 3.6391e-06
-	Position_Z = 9.51456e-08
+	Position_X = 0.000872231
+	Position_Y = 5.58994e-06
+	Position_Z = 9.9009e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00301059
-	Position_Y = 0.00571083
-	Position_Z = 6.34083e-08
+	Position_X = 0.00113099
+	Position_Y = 0.00999075
+	Position_Z = 8.31267e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00204965
-	Position_Y = 0.00277163
-	Position_Z = 8.33713e-08
+	Position_X = 0.00252502
+	Position_Y = 0.0026778
+	Position_Z = 8.86136e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00251561
-	Position_Y = 0.00999473
-	Position_Z = 6.0105e-08
+	Position_X = 0.00389764
+	Position_Y = 0.00999274
+	Position_Z = 9.53216e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00351355
-	Position_Y = 0.00999329
-	Position_Z = 5.0469e-08
+	Position_X = 0.000825939
+	Position_Y = 0.00658637
+	Position_Z = 7.40809e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00197904
-	Position_Y = 0.00673644
-	Position_Z = 9.28439e-08
+	Position_X = 6.67666e-06
+	Position_Y = 0.0074893
+	Position_Z = 6.36419e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.0019675
-	Position_Y = 0.00469714
-	Position_Z = 8.97596e-08
+	Position_X = 0.00173091
+	Position_Y = 0.00420063
+	Position_Z = 7.07224e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00189283
-	Position_Y = 0.00119498
-	Position_Z = 8.10304e-08
+	Position_X = 0.00415332
+	Position_Y = 0.00480832
+	Position_Z = 8.62722e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00193683
-	Position_Y = 2.41688e-06
-	Position_Z = 7.86331e-08
+	Position_X = 0.00339118
+	Position_Y = 0.00999628
+	Position_Z = 5.3615e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00305485
-	Position_Y = 0.0037083
-	Position_Z = 6.08214e-08
+	Position_X = 0.000839143
+	Position_Y = 0.00464143
+	Position_Z = 8.75991e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.0015058
-	Position_Y = 0.0099939
-	Position_Z = 7.3427e-08
+	Position_X = 0.00102612
+	Position_Y = 0.00849277
+	Position_Z = 6.60666e-08
 	Charge_value = -1
 Particle parameters:
-	Position_X = 0.00318077
-	Position_Y = 0.00159076
-	Position_Z = 6.18175e-08
+	Position_X = 0.00444702
+	Position_Y = 0.0099902
+	Position_Z = 9.13514e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.0028583
+	Position_Y = 0.000725077
+	Position_Z = 6.86836e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499736
+	Position_Y = 0.00653278
+	Position_Z = 6.82382e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00248242
+	Position_Y = 0.00747597
+	Position_Z = 8.28267e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00339138
+	Position_Y = 0.00427452
+	Position_Z = 9.48784e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00394454
+	Position_Y = 0.00922663
+	Position_Z = 7.50512e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499954
+	Position_Y = 3.96572e-06
+	Position_Z = 6.15092e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00342387
+	Position_Y = 0.00536478
+	Position_Z = 9.23791e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00178398
+	Position_Y = 8.98799e-06
+	Position_Z = 5.46732e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.0040605
+	Position_Y = 0.00791986
+	Position_Z = 7.94971e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 6.45815e-06
+	Position_Y = 0.00114438
+	Position_Z = 7.1014e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00345721
+	Position_Y = 0.00871955
+	Position_Z = 7.50233e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00172155
+	Position_Y = 0.00515224
+	Position_Z = 7.61414e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 6.9327e-06
+	Position_Y = 0.00999588
+	Position_Z = 8.12986e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 1.73544e-06
+	Position_Y = 0.00257503
+	Position_Z = 7.62817e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00170493
+	Position_Y = 0.00324138
+	Position_Z = 6.86871e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00454665
+	Position_Y = 8.32741e-06
+	Position_Z = 8.11305e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00131905
+	Position_Y = 6.27656e-06
+	Position_Z = 9.70112e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00432831
+	Position_Y = 0.000787788
+	Position_Z = 7.04318e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00336614
+	Position_Y = 0.00325951
+	Position_Z = 5.08818e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00311975
+	Position_Y = 5.39739e-06
+	Position_Z = 5.78398e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.0042025
+	Position_Y = 0.00700368
+	Position_Z = 8.28513e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 6.85686e-06
+	Position_Y = 0.00960654
+	Position_Z = 5.58916e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00223677
+	Position_Y = 3.9299e-07
+	Position_Z = 8.72995e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.000828213
+	Position_Y = 0.00267676
+	Position_Z = 6.34275e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 4.32017e-06
+	Position_Y = 0.00505803
+	Position_Z = 9.38392e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00169521
+	Position_Y = 0.00610028
+	Position_Z = 8.6809e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00285628
+	Position_Y = 0.00999066
+	Position_Z = 7.20595e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 4.71521e-06
+	Position_Y = 0.00589703
+	Position_Z = 7.05281e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00165872
+	Position_Y = 0.00146227
+	Position_Z = 7.32111e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00216069
+	Position_Y = 0.00075465
+	Position_Z = 7.15563e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.0014704
+	Position_Y = 0.00961014
+	Position_Z = 5.81351e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00227253
+	Position_Y = 0.00885968
+	Position_Z = 9.16454e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00260381
+	Position_Y = 0.00567605
+	Position_Z = 6.62035e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00416452
+	Position_Y = 0.00271007
+	Position_Z = 5.4953e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499207
+	Position_Y = 0.00571615
+	Position_Z = 9.12519e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00084359
+	Position_Y = 0.00560532
+	Position_Z = 7.23145e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.000613844
+	Position_Y = 0.00999721
+	Position_Z = 5.83016e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.000826529
+	Position_Y = 0.00171946
+	Position_Z = 8.92781e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00162728
+	Position_Y = 0.00705915
+	Position_Z = 8.35967e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 7.6763e-06
+	Position_Y = 0.00911106
+	Position_Z = 7.4377e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 5.05615e-06
+	Position_Y = 0.0082175
+	Position_Z = 8.32095e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00332747
+	Position_Y = 0.00145646
+	Position_Z = 6.5797e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00266814
+	Position_Y = 7.95733e-06
+	Position_Z = 9.71262e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00335987
+	Position_Y = 0.00746539
+	Position_Z = 5.40641e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499767
+	Position_Y = 0.00251461
+	Position_Z = 6.11052e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.000849141
+	Position_Y = 0.00759716
+	Position_Z = 6.95483e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499552
+	Position_Y = 0.00328409
+	Position_Z = 9.06783e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 7.98387e-06
+	Position_Y = 0.00420977
+	Position_Z = 6.46839e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00359194
+	Position_Y = 9.76923e-06
+	Position_Z = 9.54848e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499791
+	Position_Y = 0.00999046
+	Position_Z = 7.81943e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.000684063
+	Position_Y = 0.000804384
+	Position_Z = 6.39241e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00041565
+	Position_Y = 5.15223e-06
+	Position_Z = 8.24092e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00342102
+	Position_Y = 0.00645156
+	Position_Z = 5.22369e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00283762
+	Position_Y = 0.00828659
+	Position_Z = 6.85139e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00249053
+	Position_Y = 0.00170773
+	Position_Z = 6.0801e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499302
+	Position_Y = 0.00953379
+	Position_Z = 7.61125e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499819
+	Position_Y = 0.00807812
+	Position_Z = 8.47292e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00417918
+	Position_Y = 0.00594738
+	Position_Z = 6.7958e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499041
+	Position_Y = 0.00177696
+	Position_Z = 5.87797e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00289784
+	Position_Y = 0.00923075
+	Position_Z = 7.8172e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499168
+	Position_Y = 0.004099
+	Position_Z = 9.80253e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00259896
+	Position_Y = 0.00470683
+	Position_Z = 6.61035e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499735
+	Position_Y = 0.00734816
+	Position_Z = 5.66316e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 4.95642e-06
+	Position_Y = 0.00672518
+	Position_Z = 8.95552e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00417217
+	Position_Y = 0.00170859
+	Position_Z = 9.83887e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00361026
+	Position_Y = 0.000670872
+	Position_Z = 7.73722e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00334798
+	Position_Y = 0.00230127
+	Position_Z = 9.80735e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 3.25882e-06
+	Position_Y = 1.83275e-06
+	Position_Z = 5.3382e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.000440894
+	Position_Y = 0.00869871
+	Position_Z = 6.26259e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00182084
+	Position_Y = 0.00800392
+	Position_Z = 5.37606e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499686
+	Position_Y = 0.000475661
+	Position_Z = 7.65669e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00236456
+	Position_Y = 0.0099901
+	Position_Z = 8.45861e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.000836705
+	Position_Y = 0.00366629
+	Position_Z = 8.95585e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 8.90374e-06
+	Position_Y = 0.00185037
+	Position_Z = 9.02403e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00183865
+	Position_Y = 0.0099909
+	Position_Z = 5.9502e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00417297
+	Position_Y = 0.00373386
+	Position_Z = 9.47684e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.0014023
+	Position_Y = 0.000685562
+	Position_Z = 5.22064e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499979
+	Position_Y = 0.00886902
+	Position_Z = 5.71292e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499199
+	Position_Y = 0.00492216
+	Position_Z = 6.45435e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 4.96384e-06
+	Position_Y = 0.00337452
+	Position_Z = 5.17203e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 1.58599e-06
+	Position_Y = 0.000511409
+	Position_Z = 7.78805e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00253873
+	Position_Y = 0.00369589
+	Position_Z = 7.42867e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00439214
+	Position_Y = 0.00867531
+	Position_Z = 6.30327e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00159442
+	Position_Y = 0.0088206
+	Position_Z = 8.09393e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00499266
+	Position_Y = 0.00111123
+	Position_Z = 8.54657e-08
+	Charge_value = -1
+Particle parameters:
+	Position_X = 0.00252832
+	Position_Y = 0.00658646
+	Position_Z = 8.65692e-08
 	Charge_value = -1

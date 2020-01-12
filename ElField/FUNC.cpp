@@ -76,6 +76,7 @@ void WriteChargesDataToFile (    const std::string &OutputFile,
 void ReadInputFile(              const std::string &InputeFile, 
 	                               SUB_PRP &Substrate, 
 	                               int &NumberOfParticle, 
+	                               double &Temperature,
 	                               int &NumberIfItteration,
 	                               std::string &OutputFile_EFS, 
 	                               std::string &OutputFile_EFP)
@@ -111,6 +112,18 @@ void ReadInputFile(              const std::string &InputeFile,
 		Substrate.set_dimnension(chec);
 		WriteMessage("\t\tDimenstion of calculation was read ...",
 			               "ReadInputFile");
+
+		getline(fin, line);
+		s = split(line);
+		Substrate.set_voltage( stod(s[2]));
+		WriteMessage("\t\tValue of EFS was read ...",
+			               "ReadInputFile");		
+		getline(fin, line);
+		s = split(line);
+		Temperature = stod(s[2]);
+		WriteMessage("\t\tNumber of itteration was read ...",
+			               "ReadInputFile");
+		
 		getline(fin, line);
 		s = split(line);
 		NumberIfItteration = stoi(s[2]);
@@ -165,17 +178,22 @@ double CalculateTotalEnergy(     std::vector<CHR_PRP> &Charge)
 {
 	double TotalEnergy = 0.0;
 	double MultCharge, Rx2, Ry2, Rz2;
+	std::cout << "\t" << "Progress of CalculateTotalEnergy:";
+	int NumberStar;
 	for(int i = 0; i != Charge.size(); i++){
 		for(int j = 0; j != Charge.size(); j++){
 			if (j !=i ){
 				MultCharge   = Charge[i].get_charge() * Charge[j].get_charge();
-				Rx2          = pow(Charge[j].get_position_x() - Charge[i].get_position_x(),2);
-				Ry2          = pow(Charge[j].get_position_y() - Charge[i].get_position_y(),2);
-				Rz2          = pow(Charge[j].get_position_z() - Charge[i].get_position_z(),2);
-				TotalEnergy += MultCharge / sqrt(Rx2 + Ry2 + Rz2);
+				Rx2          = pow( Charge[j].get_position_x() - Charge[i].get_position_x(),2 );
+				Ry2          = pow( Charge[j].get_position_y() - Charge[i].get_position_y(),2 );
+				Rz2          = pow( Charge[j].get_position_z() - Charge[i].get_position_z(),2 );
+				TotalEnergy += MultCharge / sqrt( Rx2 + Ry2 + Rz2 );
 			}
 		}
+		std::cout << "*";
+		
 	}
+	std::cout << "\nComplete" << std::endl;
 	WriteMessage("TotalEnergy of charge particales system is equal "+ std::to_string(TotalEnergy/2), "CalculateTotalEnergy");
 
 	return TotalEnergy /= 2;	
@@ -206,7 +224,7 @@ void CalculateForce(             std::vector <CHR_PRP> &Charges){
 		Charges[i].set_action_force_x(force_x);
 		Charges[i].set_action_force_y(force_y);
 		Charges[i].set_action_force_z(force_z);
-		WriteMessage("Force was Calculate for "+std::to_string(i)+ " particle","CalculateForce");
+		// WriteMessage("Force was Calculate for "+std::to_string(i)+ " particle","CalculateForce");
 	}
 }
 
@@ -254,10 +272,11 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 	//Shift all particles after that calculate enegy
 	WriteMessage("\t\t@@@@@@","ToLocalMinimum");
 	WriteMessage("\n\t\t\t@@@Start optimize@@@","ToLocalMinimum");
-	double dY = 0.00001, dX = 0.00001, dZ = 0.00'000'005, x, y, z;
+	double dY = 0.00001, 
+	       dX = 0.00001, 
+	       dZ = 0.00'000'005, 
+	       x, y, z;
 	for(int n = 0; n != NumberIfItteration; n++){
-		WriteMessage("@@@Start " + std::to_string(n) +" itteration", "ToLocalMinimum");
-		WriteMessage("@@@Start to shift particales","ToLocalMinimum");
 		for (auto &i:Charges){
 			x  =  i.get_position_x();
 			y  =  i.get_position_y();	
@@ -276,12 +295,8 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 				i.set_position_z( z + dZ );
 			}else if ( ( i.get_action_force_z() < 0 ) && ((z - dZ) > 0.00'000'005 ) ){
 				i.set_position_z( z - dZ);
-			}
+			}	
 		}
-		WriteMessage("@@@Finish to shift particales","ToLocalMinimum");
-		WriteMessage("@@@Calculate forces is start","ToLocalMinimum");	
 		CalculateForce(Charges);
-		WriteMessage("@@@Calculate forces is OVER","ToLocalMinimum");	
-		WriteMessage("@@@Finish " + std::to_string(n) + " itteration", "ToLocalMinimum");
 	}
 }

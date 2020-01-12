@@ -46,6 +46,7 @@ public:
 	double get_position_x(){         return position_x;}
 	double get_position_y(){         return position_y;}
 	double get_position_z(){         return position_z;}
+
 	double get_charge(){             return charge_value;}
 	
 	double get_action_force_x(){     return action_force_x;}
@@ -53,6 +54,9 @@ public:
 	double get_action_force_z(){     return action_force_z;}
 
 	double get_energy(){             return energy;}
+
+	double get_lenght_x(){           return lenght_x;}
+	double get_lenght_y(){           return lenght_y;}
 
   double get_substrate_lenght_x(){ return lenght_x;}
   double get_substrate_lenght_y(){ return lenght_y;}

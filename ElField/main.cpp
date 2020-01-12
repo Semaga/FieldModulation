@@ -17,16 +17,23 @@ int main(int argc, char const *argv[]){
 	SUB_PRP substrate;
 	//Set paramaters of cell wildth and lenght, fragmentation
 	int NumberOfParticle, NumberOfItteration;
+	double Temperature;
 	std::string OutputFile_EFS;
 	std::string OutputFile_EFP;
 	std::string OutputFile_be = "POS_be.txt";
 	std::string OutputFile_af = "POS_af.txt";
-	ReadInputFile("InputFile.txt", substrate, NumberOfParticle, NumberOfItteration, OutputFile_EFS, OutputFile_EFP);
+	ReadInputFile("InputFile.txt", 
+		             substrate, 
+		             NumberOfParticle, 
+		             Temperature, 
+		             NumberOfItteration, 
+		             OutputFile_EFS, 
+		             OutputFile_EFP);
 
 	//Put data of substrate to variables
-	int dimension = substrate.get_dimension();
-	double lenght_x = substrate.get_lenght_x();
-	double lenght_y = substrate.get_lenght_y();
+	int    dimension  = substrate.get_dimension();
+	double lenght_x   = substrate.get_lenght_x();
+	double lenght_y   = substrate.get_lenght_y();
 	
 
 	//make vector with Charges properties

@@ -41,7 +41,7 @@ void CHR_PRP::set_action_force_y( const double &force_y ){
 void CHR_PRP::set_action_force_z( const double &force_z){
 	double epsilon = 1.054, f = 0.0;
 	f  = - ( epsilon - 1 ) * charge_value*charge_value / (( epsilon + 1 ) * position_z*position_z);
-	f += charge_value * EFS; 
+	f += charge_value * EFS; //clamping potential
 	f += force_z;
 	action_force_z = f; 
 }
