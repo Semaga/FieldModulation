@@ -39,20 +39,20 @@ public:
 	void set_action_force_y(  const double &force_y  );
 	void set_action_force_z(  const double &force_y  );
 
-	void set_energy(             const double &E     );
+	void set_energy(          const double &E     );
 
-	double get_position_x(){     return position_x;}
-	double get_position_y(){     return position_y;}
-	double get_position_z(){     return position_z;}
-	double get_charge(){         return charge_value;}
+  void WriteDataToFile(     std::ofstream &fout);
+
+	double get_position_x(){         return position_x;}
+	double get_position_y(){         return position_y;}
+	double get_position_z(){         return position_z;}
+	double get_charge(){             return charge_value;}
 	
-	double get_action_force_x(){ return action_force_x;}
-	double get_action_force_y(){ return action_force_y;}
-	double get_action_force_z(){ return action_force_z;}
+	double get_action_force_x(){     return action_force_x;}
+	double get_action_force_y(){     return action_force_y;}
+	double get_action_force_z(){     return action_force_z;}
 
-	double get_energy(){         return energy;}
-
-  void WriteDataToFile(        std::ofstream &fout);
+	double get_energy(){             return energy;}
 
   double get_substrate_lenght_x(){ return lenght_x;}
   double get_substrate_lenght_y(){ return lenght_y;}

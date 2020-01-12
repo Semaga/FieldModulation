@@ -21,6 +21,7 @@ void CHR_PRP::set_position_y(     const double& y      ){
 void CHR_PRP::set_position_z(     const double &z       ){
 	position_z = z;
 }
+
 void CHR_PRP::set_charge(         const double &charge  ){
 	charge_value = charge;
 }
@@ -37,7 +38,7 @@ void CHR_PRP::set_action_force_y( const double &force_y ){
 	action_force_y = force_y + f;
 }
 
-void CHR_PRP::set_action_force_z(const double &force_z){
+void CHR_PRP::set_action_force_z( const double &force_z){
 	double epsilon = 1.054, f = 0.0;
 	f  = - ( epsilon - 1 ) * charge_value*charge_value / (( epsilon + 1 ) * position_z*position_z);
 	f += charge_value * EFS; 
@@ -49,7 +50,7 @@ void CHR_PRP::set_energy(         const double &E       ){
 	energy = E;
 }
 
-void CHR_PRP::WriteDataToFile(std::ofstream &fout){
+void CHR_PRP::WriteDataToFile(    std::ofstream &fout){
 	fout << "Particle parameters:"              << std::endl;
 	fout << "\tPosition_X = "   << position_x   << std::endl;
 	fout << "\tPosition_Y = "   << position_y   << std::endl;

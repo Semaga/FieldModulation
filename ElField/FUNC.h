@@ -11,7 +11,7 @@
 #include "CHR_PRP.h"
 #include "SUB_PRP.h"
 
-void VectorToZero( std::vector <std::vector <double> >&v);
+void VectorToZero(              std::vector <std::vector <double> >&v);
 
 
 void WriteVectorToFile(          const std::string &OutputFile, 

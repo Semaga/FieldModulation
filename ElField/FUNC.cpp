@@ -1,7 +1,8 @@
 #include "FUNC.h"
 
 //Get 2d vector and nullifies them
-void VectorToZero(std::vector <std::vector <double> >&v){
+void VectorToZero(               std::vector <std::vector <double> >&v)
+{
 	for(int i = 0; i != v.size(); i++){
 		for(int j = 0; j != v[i].size(); j++){
 			v[i][j] = 0;
@@ -10,10 +11,10 @@ void VectorToZero(std::vector <std::vector <double> >&v){
 }
 
 //Write data from 2d vector to file
-void WriteVectorToFile(const std::string &OutputFile, 
-	                     std::vector <std::vector <double> > &v, 
-	                     std::vector <CHR_PRP> &Charge, 
-	                     SUB_PRP &Substrate)
+void WriteVectorToFile(          const std::string &OutputFile, 
+	                               std::vector <std::vector <double> > &v, 
+	                               std::vector <CHR_PRP> &Charge, 
+	                               SUB_PRP &Substrate)
 {
 	//Get vectors of result of calculation, ChargeParameters and Substrate parameters 
 	std::string s = "Start write the " + OutputFile;
@@ -72,12 +73,12 @@ void WriteChargesDataToFile (    const std::string &OutputFile,
 
 
 //Read input data from InputFile
-void ReadInputFile(    const std::string &InputeFile, 
-	                     SUB_PRP &Substrate, 
-	                     int &NumberOfParticle, 
-	                     int &NumberIfItteration,
-	                     std::string &OutputFile_EFS, 
-	                     std::string &OutputFile_EFP)
+void ReadInputFile(              const std::string &InputeFile, 
+	                               SUB_PRP &Substrate, 
+	                               int &NumberOfParticle, 
+	                               int &NumberIfItteration,
+	                               std::string &OutputFile_EFS, 
+	                               std::string &OutputFile_EFP)
 {
 	WriteMessage("Try to open inpute file",
 		           "ReadInputFile");	
@@ -144,7 +145,7 @@ void ReadInputFile(    const std::string &InputeFile,
 	}
 }
 
-std::vector <std::string> split(std::string & s, char delimeter){
+std::vector <std::string> split( std::string & s, char delimeter){
 	std::stringstream ss(s);
 	std::string item;
 	std::vector<std::string> tokens;
@@ -154,12 +155,14 @@ std::vector <std::string> split(std::string & s, char delimeter){
 	return tokens;
 }
 
-void WriteMessage(const std::string &s, const std::string &PositionFile){
+void WriteMessage(               const std::string &s, 
+	                               const std::string &PositionFile){
 	std::cout << "\t####" << std::endl;
 	std::cout << '\t' << "Message from " << PositionFile <<" function :\t" << s << std::endl;
 }
 
-double CalculateTotalEnergy(std::vector<CHR_PRP> &Charge){
+double CalculateTotalEnergy(     std::vector<CHR_PRP> &Charge)
+{
 	double TotalEnergy = 0.0;
 	double MultCharge, Rx2, Ry2, Rz2;
 	for(int i = 0; i != Charge.size(); i++){
@@ -178,7 +181,7 @@ double CalculateTotalEnergy(std::vector<CHR_PRP> &Charge){
 	return TotalEnergy /= 2;	
 }
 
-void CalculateForce( std::vector <CHR_PRP> &Charges){
+void CalculateForce(             std::vector <CHR_PRP> &Charges){
 	for(int i = 0; i != Charges.size(); i++){
 		//Zeroing components of strenghts action to particle
 		double force_x = 0.0, 
@@ -207,10 +210,10 @@ void CalculateForce( std::vector <CHR_PRP> &Charges){
 	}
 }
 
-void CalculateEFS( std::vector <std::vector <double> > &EFS, 
-	                 std::vector <CHR_PRP> &Charges, 
-	                 const double &delta_x, 
-	                 const double &delta_y)
+void CalculateEFS(               std::vector <std::vector <double> > &EFS, 
+	                               std::vector <CHR_PRP> &Charges, 
+	                               const double &delta_x, 
+	                               const double &delta_y)
 {
 	double x = delta_x, y = delta_y;
 	for(int k = 0; k != Charges.size(); k++){
@@ -226,10 +229,10 @@ void CalculateEFS( std::vector <std::vector <double> > &EFS,
 	}
 }
 
-void CalculateEFP( std::vector <std::vector <double> > &EFP, 
-	                 std::vector <CHR_PRP> &Charges, 
-	                 const double &delta_x, 
-	                 const double &delta_y)
+void CalculateEFP(               std::vector <std::vector <double> > &EFP, 
+	                               std::vector <CHR_PRP> &Charges, 
+	                               const double &delta_x, 
+	                               const double &delta_y)
 {
 	double x = delta_x, y = delta_y;
 	for(int k = 0; k != Charges.size(); k++){
@@ -245,8 +248,8 @@ void CalculateEFP( std::vector <std::vector <double> > &EFP,
 	}	
 }
 
-void ToLocalMinimum(std::vector <CHR_PRP> &Charges, 
-	                  const int &NumberIfItteration)
+void ToLocalMinimum(             std::vector <CHR_PRP> &Charges, 
+	                               const int &NumberIfItteration)
 {
 	//Shift all particles after that calculate enegy
 	WriteMessage("\t\t@@@@@@","ToLocalMinimum");
