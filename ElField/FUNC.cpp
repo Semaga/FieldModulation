@@ -169,7 +169,8 @@ std::vector <std::string> split( std::string & s, char delimeter){
 }
 
 void WriteMessage(               const std::string &s, 
-	                               const std::string &PositionFile){
+	                               const std::string &PositionFile)
+{
 	std::cout << "\t####" << std::endl;
 	std::cout << '\t' << "Message from " << PositionFile <<" function :\t" << s << std::endl;
 }
@@ -205,17 +206,17 @@ void CalculateForce(             std::vector <CHR_PRP> &Charges){
 		double force_x = 0.0, 
 		       force_y = 0.0, 
 		       force_z = 0.0,
- 		       R2 = 0.0, 
+ 		       R2      = 0.0, 
  		       delta_z = 0.0,
 		       delta_y = 0.0, 
 		       delta_x = 0.0;
 		for(int j = 0; j != Charges.size(); j++){
 			if (j != i){
 				// WriteMessage("Ups, ","CalculateForce");
-				delta_x = Charges[i].get_position_x() - Charges[j].get_position_x();
-				delta_y = Charges[i].get_position_y() - Charges[j].get_position_y();
-				delta_z = Charges[i].get_position_z() - Charges[j].get_position_z();
-				R2 = pow(delta_y, 2) + pow(delta_x, 2) + pow(delta_z, 2) ;
+				delta_x =  Charges[i].get_position_x() - Charges[j].get_position_x();
+				delta_y =  Charges[i].get_position_y() - Charges[j].get_position_y();
+				delta_z =  Charges[i].get_position_z() - Charges[j].get_position_z();
+				R2      =  pow(delta_y, 2) + pow(delta_x, 2) + pow(delta_z, 2) ;
 				force_x += Charges[i].get_charge() * Charges[j].get_charge() * delta_x/ pow(R2, 1.5);
 				force_y += Charges[i].get_charge() * Charges[j].get_charge() * delta_y/ pow(R2, 1.5);
 				force_z += Charges[i].get_charge() * Charges[j].get_charge() * delta_z/ pow(R2, 1.5);
@@ -227,22 +228,6 @@ void CalculateForce(             std::vector <CHR_PRP> &Charges){
 		// WriteMessage("Force was Calculate for "+std::to_string(i)+ " particle","CalculateForce");
 	}
 }
-
-void CalculateVelosity(          std::vector <CHR_PRP> &Charge){
-	double Vx,  Vy,  Vz,
-	       dVx, dVy, dVz;
-
-	for (auto &i:Charge){
-		Vx = i.get_velosity_x();
-		Vy = i.get_velosity_y();
-		Vz = i.get_velosity_z();
-	
-		dVx = i.get_action_force_x() * 0.000'005 / i.get_mass();
-		dVy = i.get_action_force_y() * 0.000'005 / i.get_mass();
-		dVz = i.get_action_force_z() * 0.000'005 / i.get_mass();
-	}
-}
-
 
 void CalculateEFS(               std::vector <std::vector <double> > &EFS, 
 	                               std::vector <CHR_PRP> &Charges, 
@@ -288,47 +273,46 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 	//Shift all particles after that calculate enegy
 	WriteMessage("\t\t@@@@@@","ToLocalMinimum");
 	WriteMessage("\n\t\t\t@@@Start optimize@@@","ToLocalMinimum");
-	double dY = 0.00001, 
-	       dX = 0.00001, 
-	       dZ = 0.00'000'005,
+	double dY = 0.01 * Charges[0].get_lenght_x(), 
+	       dX = 0.01 * Charges[0].get_lenght_y(), 
+	       dZ = 0.0'000'005,
 	       dt = 0.000'000'005, // Time between calc 5 mks
- 	       dVx, dVy, dVz, 
-	       x,  y,  z,
-	       Vx, Vy, Vz;
+	       x,  y,  z;
+
 	CalculateForce(Charges);
-	CalculateVelosity(Charges);
 	for(int n = 0; n != NumberIfItteration; n++){
 		for (auto &i:Charges){
+			dX = 0.01 * Charges[0].get_lenght_x();
+			dY = 0.01 * Charges[0].get_lenght_y();			
 			x  =  i.get_position_x();
 			y  =  i.get_position_y();	
 			z  =  i.get_position_z();  
-
-			Vx = i.get_velosity_x();
-			Vy = i.get_velosity_y();
-			Vz = i.get_velosity_z();
-
-			dVx = i.get_action_force_x() / i.get_mass() * dt;
-			dVy = i.get_action_force_y() / i.get_mass() * dt;
-			dVz = i.get_action_force_z() / i.get_mass() * dt;
 			
-			if ( ( i.get_action_force_x() > 0 ) && ( ( x + dX ) < i.get_substrate_lenght_x() ) ){
+			if ( abs( i.get_action_force_x()) > abs( i.get_action_force_y())){
+				// dX *= abs( i.get_action_force_x() / i.get_action_force_y());
+				dX *= 2;
+			}else if( abs( i.get_action_force_x()) < abs( i.get_action_force_y()) ){
+				// dY *= abs( i.get_action_force_y() / i.get_action_force_x());
+				dY *= 2;
+			}
+
+			if ( ( i.get_action_force_x() > 0 ) && ( ( x + dX ) < i.get_lenght_x() ) ){
 				i.set_position_x(x + dX);
 			}else if( ( i.get_action_force_x() < 0 ) && ((x - dX) > 0) ) {
 				i.set_position_x( x - dX);
 			}
-			if ( ( i.get_action_force_y() > 0 ) && ( ( y + dY ) < i.get_substrate_lenght_y() ) ){
+			if ( ( i.get_action_force_y() > 0 ) && ( ( y + dY ) < i.get_lenght_y() ) ){
 				i.set_position_y( y + dY);
 			}else if( ( i.get_action_force_y() < 0 ) && ((y - dY) > 0 ) ){
 				i.set_position_y( y - dY);
 			}
-			if ( ( i.get_action_force_z() > 0 ) && ((z + dZ) < 0.00'000'065 ) ){
+			if ( ( i.get_action_force_z() > 0 ) ){//&& ((z + dZ) < 0.0'000'065 ) ){
 				i.set_position_z( z + dZ );
-			}else if ( ( i.get_action_force_z() < 0 ) && ((z - dZ) > 0.00'000'005 ) ){
+			}else if ( ( i.get_action_force_z() < 0 ) && ((z - dZ) > 0.0'000'005 ) ){
 				i.set_position_z( z - dZ);
 			}	
 			
 		}
 		CalculateForce(Charges);
-		CalculateVelosity(Charges);
 	}
 }

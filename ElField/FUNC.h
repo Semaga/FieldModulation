@@ -43,8 +43,6 @@ std::vector <std::string> split( std::string &s, char delimeter = ' ');
 
 void CalculateForce(             std::vector <CHR_PRP> &Charge);
 
-void CalculateVelosity(          std::vector <CHR_PRP> &Charge);
-
 
 void CalculateEFS(               std::vector <std::vector <double> > &EFS, 
 	                               std::vector <CHR_PRP> &Charges, 

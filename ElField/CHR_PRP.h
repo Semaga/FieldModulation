@@ -2,6 +2,7 @@
 #define CHR_PRP_H
 
 #include <fstream>
+#include <cmath>
 #include "SUB_PRP.h"
 
 class CHR_PRP{
@@ -74,9 +75,6 @@ public:
 
 	double get_lenght_x(){           return lenght_x;}
 	double get_lenght_y(){           return lenght_y;}
-
-  double get_substrate_lenght_x(){ return lenght_x;}
-  double get_substrate_lenght_y(){ return lenght_y;}
 
 };
 

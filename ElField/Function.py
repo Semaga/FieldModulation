@@ -62,7 +62,7 @@ def PlotData(EFS_OutputFile, Title = "EFS", dispertion = False ,Scale=True):
         Y = np.linspace(0, lenght_y, dimensional)
     
 
-    plt.figure(figsize = (lenght_x*1000, lenght_y*1000))
+    plt.figure()
     plt.xlabel("X")
     plt.ylabel("Y")
     plt.title("Position charge particle in XY-plane")
@@ -85,8 +85,11 @@ def PlotData(EFS_OutputFile, Title = "EFS", dispertion = False ,Scale=True):
     plt.figure()
     plt.title('Dispertion particle along Z-axis')
     plt.xlabel('Particle')
-    plt.ylabel('Position along z-axis')
-    plt.ylim(0, 0.00000065)
+    plt.ylabel('Position along z-axis (10*nm)')
+    plt.ylim(0, 0.000008)
+    plt.grid(which='minor',
+        color = 'gray',
+        linestyle = ':')
     for i, value in enumerate(pos_z):
         plt.scatter(i, value, color = 'black')
     plt.show()

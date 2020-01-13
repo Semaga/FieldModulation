@@ -5,19 +5,23 @@ void CHR_PRP::set_charge(         const double &charge  ){
 }
 
 void CHR_PRP::set_position_x(     const double &x      ){
-	if( ( x < lenght_x ) && (x > 0) ){
-		position_x = x;
+	if ( x > lenght_x ){
+		position_x = 2 * lenght_x - x;
+	}else if ( x < 0 ){
+		position_x = -x;
 	}
+		position_x = x;
 }
 void CHR_PRP::set_position_y(     const double& y      ){
-	if( ( y < lenght_y ) && (y > 0)){
-		position_y = y;
+	if ( y > lenght_y ){
+		position_y = 2 * lenght_y - y;
+	}else if ( y < 0 ){
+		position_y = -y;
 	}
+	position_y = y;	
 }
 void CHR_PRP::set_position_z(     const double &z       ){
-	if ( ( z < 0.00'000'065) && (z > 0.00'000'005)){
-		position_z = z;
-	}
+	position_z = z;
 }
 
 void CHR_PRP::set_velosity_x(     const double &Vx      ){
@@ -32,15 +36,18 @@ void CHR_PRP::set_velosity_z(     const double &Vz      ){
 
 
 void CHR_PRP::set_action_force_x( const double &force_x ){
-	double f = 0.0;
-	f = - 1500'000'000 * (position_x - lenght_x/2.0);
-	action_force_x = force_x + f;
+	double f_l = 0.0, f_r = 0.0;
+	f_l =  0.4 * pow( charge_value, 2 ) / pow( position_x, 2 );
+	f_r =  0.4 * pow( charge_value, 2 ) / pow( lenght_x - position_x, 2 );
+	action_force_x = force_x - (f_r - f_l);
 }
 
 void CHR_PRP::set_action_force_y( const double &force_y ){
-	double f = 0.0;
-	// f = - 1500'000'000 * (position_y - lenght_y/2.0);
-	action_force_y = force_y + f;
+	double f_l = 0.0, f_r = 0.0, f;
+	f_l =  0.4 * pow( charge_value, 2 ) / pow( position_y, 2 );
+	f_r =  0.4 * pow( charge_value, 2 ) / pow( lenght_y - position_y, 2 );
+	f = - EFS * 10'000'000 * ( position_y - lenght_y / 2.0 );
+	action_force_y = force_y - (f_r - f_l)+f;
 }
 
 void CHR_PRP::set_action_force_z( const double &force_z){
