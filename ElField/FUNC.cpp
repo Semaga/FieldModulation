@@ -310,10 +310,6 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 			dVx = i.get_action_force_x() / i.get_mass() * dt;
 			dVy = i.get_action_force_y() / i.get_mass() * dt;
 			dVz = i.get_action_force_z() / i.get_mass() * dt;
-
-			// dX = i.get_action_force_x()* dt * dt /( 2 * i.get_mass());
-			// dY = i.get_action_force_y()* dt * dt /( 2 * i.get_mass());
-			// dZ = i.get_action_force_z()* dt * dt /( 2 * i.get_mass());
 			
 			if ( ( i.get_action_force_x() > 0 ) && ( ( x + dX ) < i.get_substrate_lenght_x() ) ){
 				i.set_position_x(x + dX);
@@ -330,7 +326,6 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 			}else if ( ( i.get_action_force_z() < 0 ) && ((z - dZ) > 0.00'000'005 ) ){
 				i.set_position_z( z - dZ);
 			}	
-
 			
 		}
 		CalculateForce(Charges);
