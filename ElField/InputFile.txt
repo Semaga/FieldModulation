@@ -5,9 +5,9 @@ Parameters of calculation:
 	Dimenstion = 500
 	ElectricFieldStrenght = 0
 	Temperature = 300
-	Itteration = 6000
+	Itteration = 600
 Other parameters:
-	Number of electrons = 40
+	Number of electrons = 30
 Name of output files:
 	Output EFS-files: POS_before.txt
 	Output EFP-files: outputfile2.txt

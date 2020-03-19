@@ -37,15 +37,15 @@ void CHR_PRP::set_velosity_z(     const double &Vz      ){
 
 void CHR_PRP::set_action_force_x( const double &force_x ){
 	double f_l = 0.0, f_r = 0.0;
-	f_l =  0.4 * pow( charge_value, 2 ) / pow( position_x, 2 );
-	f_r =  0.4 * pow( charge_value, 2 ) / pow( lenght_x - position_x, 2 );
+	// f_l =  0.4 * pow( charge_value, 2 ) / pow( position_x, 2 );
+	// f_r =  0.4 * pow( charge_value, 2 ) / pow( lenght_x - position_x, 2 );
 	action_force_x = force_x - (f_r - f_l);
 }
 
 void CHR_PRP::set_action_force_y( const double &force_y ){
 	double f_l = 0.0, f_r = 0.0, f;
-	f_l =  0.4 * pow( charge_value, 2 ) / pow( position_y, 2 );
-	f_r =  0.4 * pow( charge_value, 2 ) / pow( lenght_y - position_y, 2 );
+	// f_l =  0.4 * pow( charge_value, 2 ) / pow( position_y, 2 );
+	// f_r =  0.4 * pow( charge_value, 2 ) / pow( lenght_y - position_y, 2 );
 	f = - EFS * 10'000'000 * ( position_y - lenght_y / 2.0 );
 	action_force_y = force_y - (f_r - f_l)+f;
 }

@@ -273,8 +273,7 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 	//Shift all particles after that calculate enegy
 	WriteMessage("\t\t@@@@@@","ToLocalMinimum");
 	WriteMessage("\n\t\t\t@@@Start optimize@@@","ToLocalMinimum");
-	double dY = 0.01 * Charges[0].get_lenght_x(), 
-	       dX = 0.01 * Charges[0].get_lenght_y(), 
+	double dY, dX, 
 	       dZ = 0.0'000'005,
 	       dt = 0.000'000'005, // Time between calc 5 mks
 	       x,  y,  z;
@@ -290,10 +289,10 @@ void ToLocalMinimum(             std::vector <CHR_PRP> &Charges,
 			
 			if ( abs( i.get_action_force_x()) > abs( i.get_action_force_y())){
 				// dX *= abs( i.get_action_force_x() / i.get_action_force_y());
-				dX *= 2;
+				// dX *= 2;
 			}else if( abs( i.get_action_force_x()) < abs( i.get_action_force_y()) ){
 				// dY *= abs( i.get_action_force_y() / i.get_action_force_x());
-				dY *= 2;
+				// dY *= 2;
 			}
 
 			if ( ( i.get_action_force_x() > 0 ) && ( ( x + dX ) < i.get_lenght_x() ) ){
