@@ -10,5 +10,5 @@ fi
 
 if [[ $2 == plot ]]
 then
-python Untitled.py
+python dd.py
 fi

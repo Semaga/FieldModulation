@@ -7,11 +7,12 @@
 #include <string>
 #include <sstream>
 #include <cmath>
+#include <algorithm>
 
 #include "CHR_PRP.h"
 #include "SUB_PRP.h"
 
-void VectorToZero( std::vector <std::vector <double> >&v);
+void VectorToZero(              std::vector <std::vector <double> >&v);
 
 
 void WriteVectorToFile(          const std::string &OutputFile, 
@@ -27,6 +28,7 @@ void WriteChargesDataToFile (    const std::string &OutputFile,
 void ReadInputFile(              const std::string &InputeFile, 
 	                               SUB_PRP &Substrate, 
 	                               int &NumberOfParticle, 
+	                               double &Temperature,
 	                               int &NumberIfItteration, 
 	                               std::string &OutputFile_EFS, 
 	                               std::string &OutputFile_EFP);
@@ -39,7 +41,7 @@ void WriteMessage(               const std::string &s,
 std::vector <std::string> split( std::string &s, char delimeter = ' ');
 
 
-void CalculateForce(             std::vector <CHR_PRP> &Charhe);
+void CalculateForce(             std::vector <CHR_PRP> &Charge);
 
 
 void CalculateEFS(               std::vector <std::vector <double> > &EFS, 
